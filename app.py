@@ -1,9 +1,11 @@
 from distutils.log import debug
 from flask import Flask, jsonify, request
+from flask_cors import CORS
 import pickle
 import pandas as pd
 
 app = Flask(__name__)
+CORS(app)
 
 with open("insta_fake_model.pkl", "rb") as model_file:
     model = pickle.load(model_file)
@@ -44,4 +46,4 @@ def model_predict():
                     'message':str(e)}
         return jsonify(response)
 
-app.run(debug=True)
+app.run()
