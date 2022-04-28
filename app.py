@@ -46,4 +46,4 @@ def model_predict():
                     'message':str(e)}
         return jsonify(response)
 
-app.run()
+app.run(host='0.0.0.0',debug=False)
